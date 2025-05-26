@@ -2,12 +2,11 @@ import smtplib
 from email.mime.text import MIMEText
 from datetime import date
 
-# Sample report data — replace with your actual data
 report_data = {
     "stale_branches": [
         {
             "branch": "main",
-            "committer": "Your Name",  # Replace with your name
+            "committer": "Your Name",  
             "date": "2025-05-09",
             "message": "Initialized readme file",
             "days_inactive": "2 days",
@@ -19,14 +18,14 @@ report_data = {
             "title": "Initialized readme file",
             "created_at": "2025-05-09",
             "days_active": "2 days",
-            "creator": "YourGitHubUsername",  # Replace with your GitHub username
+            "creator": "YourGitHubUsername", 
             "url": "https://github.com/yourusername/repo-health-automation/pull/1",
             "reviewers": []
         }
     ],
     "repo_info": {
         "name": "repo-health-automation",
-        "owner": "yourusername",  # Replace with your GitHub username
+        "owner": "yourusername",  
         "description": "A tool to monitor GitHub repo health.",
         "default_branch": "main",
         "visibility": "private",
@@ -58,9 +57,9 @@ def format_report(data):
     return "\n".join(lines)
 
 def send_email(body):
-    sender = "your.email@gmail.com"       # Your Gmail address
-    password = "your_app_password"         # Your Gmail App Password
-    recipient = "recipient@example.com"    # Recipient email address
+    sender = "your.email@gmail.com"      
+    password = "your_app_password"         
+    recipient = "recipient@example.com"    
 
     msg = MIMEText(body)
     msg["Subject"] = f" Repo Health Report - {date.today()}"
